@@ -1,0 +1,68 @@
+<!-- <h2><a href="/"> Logo </a></h2> -->
+<!-- <h3><a href="/room">Room</a></h3> -->
+<div class="row nav-row">
+  <div class="col-lg-3"><a href="/"> <img src="https://i.postimg.cc/T204FyJm/logo.png" class="nav-logo"/> </a> <span class="heading">
+    Discussions Rooms
+  </span></div>
+  <div class="col-lg-6">
+    {% if request.user.is_authenticated %}
+
+    <!-- <div class="row name">
+You are logged in as {{request.user}}
+    </div> -->
+    {% endif %}
+    <div class="row">
+      <form method="get" action="{% url 'home' %}">
+        <input class="search" type="text" name="q" placeholder="Search Rooms..."><i class="fa fa-search" aria-hidden="true"></i>
+      </input>
+      </form>
+    </div>
+
+  </div>
+  <div class="col-lg-3">
+    {% if request.user.is_authenticated %}
+    <!-- <div>Hii {{request.user}}</div> -->
+      <!-- <a href="{% url 'logout' %}">
+        <button class="nav-log">
+        
+        Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </button>
+
+    </a> -->
+    <button class="nav-u-btn" onclick="handletoggle()">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>
+
+      <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+
+    </button>
+    <div class="nav-uc hidden" id="nav-box">
+      <a href="{% url 'logout' %}">
+        <button class="nav-log">
+        
+        Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </button>
+
+
+    </a> <br/>
+    <a href="{% url 'user-profile' request.user.id %}">
+      <button class="nav-log nl-2">
+      
+      My Profile<i class="fa fa-user" aria-hidden="true"></i>
+    </i>
+    </button>
+
+  </a> 
+    </div>
+    {% else %}
+    <a href="{% url 'login' %}">
+      <button class="nav-log nav-log-2">
+        Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+      </button>
+    </a>
+    {% endif %}
+    
+  </div>
+</div>
+
+

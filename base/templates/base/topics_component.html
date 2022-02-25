@@ -1,0 +1,13 @@
+<h3 class="home-title">Browse Topics</h3>
+<hr style="width: 70%; margin-left: 15%" />
+
+
+<a class="top-link" href="{% url 'home' %}">
+  <div class="top-div">All <span class="t-count">{{total.count}}</span></div>
+</a>
+{% for topic in topics %}
+<a class="top-link" href="{% url 'home' %}?q={{topic.name}}">
+  <div class="top-div">{{topic.name}} <span class="t-count">{{topic.room_set.all.count}}</span></div>
+</a>
+
+{% endfor %}

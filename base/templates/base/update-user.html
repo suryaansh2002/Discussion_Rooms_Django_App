@@ -1,0 +1,29 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+
+<div class="update-h">Update Your Profile</div>
+
+<div class="update-box">
+
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="row">
+            <div class="uf-label">{{field.label}}</div>
+            <div class="uf-inp">{{field}}</div>
+        </div>
+        {% endfor %}
+
+        <div class="u-button-c">
+           <a href="index.html">
+            <button class="cancel-btn">Cancel</button>
+           </a>
+           <button class="update-btn" type="submit">Update</button>
+        </div>
+
+    </form>
+
+</div>
+{% endblock content %}

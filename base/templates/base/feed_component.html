@@ -1,0 +1,33 @@
+<div>
+  {% for room in rooms %}
+
+  <div class="room-card">
+    <a href="{% url 'room' room.id %}">
+      <div class="rc-h">{{room.name}}</div>
+      <div class="ed-div">
+        Created By:
+        <a href="{% url 'user-profile' room.host.id %}">
+          @<span class="">{{room.host.username}}</span></a
+        >
+      </div>
+      <div class="topic-div">
+        <span class="r-topic"> {{room.topic.name}} </span>
+      </div>
+      {% if request.user == room.host %}
+      <div class="icon-container">
+        <a class="" href="{% url 'update-room' room.id %}"
+          ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        <a class="" href="{% url 'delete-room' room.id %}"
+          ><i class="fa fa-trash-o" aria-hidden="true"></i
+        ></a>
+      </div>
+      {% else %}
+
+      <div style="height: 1.5rem"></div>
+      {% endif %}
+    </a>
+  </div>
+
+  {% endfor %}
+</div>
