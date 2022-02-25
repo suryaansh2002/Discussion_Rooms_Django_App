@@ -1,6 +1,5 @@
 import email
 from operator import mod
-from tkinter import CASCADE
 from turtle import update
 from unicodedata import name
 from django.db import models
