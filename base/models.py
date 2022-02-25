@@ -1,7 +1,3 @@
-import email
-from operator import mod
-from turtle import update
-from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
