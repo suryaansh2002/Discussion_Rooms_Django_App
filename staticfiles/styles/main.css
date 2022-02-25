@@ -6,7 +6,10 @@ body {
   background-color: rgba(117, 206, 117, 0.808);
   background-color: #d1bce3;
   background-image: url("https://i.postimg.cc/MGSM1LB7/d.png");
-  background-size: cover;
+  background-image: url(" https://i.postimg.cc/bw3NbKB6/gradient.png");
+
+ 
+
 }
 
 .nav-row {
@@ -40,11 +43,12 @@ body {
 .nav-row .search {
   width: 80%;
   padding: 0.5rem 1rem;
-  background-color: transparent;
+  /* background-color: transparent; */
   border-radius: 15px;
   box-shadow: 1px 2px 2px #a872a4;
   margin-top: 1rem;
   border: 1px solid #a376a7;
+  background-color: rgb(255, 255, 255,0.5);
 }
 
 .nav-row .search:focus {

@@ -1,5 +1,38 @@
 <!-- <h2><a href="/"> Logo </a></h2> -->
 <!-- <h3><a href="/room">Room</a></h3> -->
+<style>
+  .nav-img{
+    width: 45px;
+    height: 45px;
+  }
+  body{
+    background-size: 120% 100%;
+  }
+.nav-row {
+  background-image: url(" https://i.postimg.cc/bw3NbKB6/gradient.png");
+
+  }
+  .nav-u-btn{
+    position: absolute;
+    right: 40px;
+    top: 30px;
+  }
+.nav-uc{
+  right:40px;
+  top: 80px;
+  }
+
+  .nav-log{
+    font-size: 1.2rem;
+  }
+
+  #cr-link{
+    background-color: rgb(255, 255, 255,0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+</style>
 <div class="row nav-row">
   <div class="col-lg-3"><a href="/"> <img src="https://i.postimg.cc/T204FyJm/logo.png" class="nav-logo"/> </a> <span class="heading">
     Discussions Rooms
@@ -30,8 +63,8 @@ You are logged in as {{request.user}}
 
     </a> -->
     <button class="nav-u-btn" onclick="handletoggle()">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>
-
+      <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
+      <img class="nav-img" src="https://i.postimg.cc/pXMQr14h/login.png">
       <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
 
     </button>
@@ -39,15 +72,16 @@ You are logged in as {{request.user}}
       <a href="{% url 'logout' %}">
         <button class="nav-log">
         
-        Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+        Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i>
       </button>
 
 
     </a> <br/>
+    
     <a href="{% url 'user-profile' request.user.id %}">
       <button class="nav-log nl-2">
       
-      My Profile<i class="fa fa-user" aria-hidden="true"></i>
+      My Profile &nbsp; <i class="fa fa-user" aria-hidden="true"></i>
     </i>
     </button>
 

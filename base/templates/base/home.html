@@ -8,9 +8,7 @@
 </style>
 
 <div class="home-container">
-  <div>
-  {% include 'base/topics_component.html' %}
-  </div>
+  <div>{% include 'base/topics_component.html' %}</div>
 
   <div>
     <div class="home-heading">DISCUSSION ROOMS</div>
@@ -20,8 +18,10 @@
         <div class="room-count col-lg-6">{{room_count}} Rooms Availible</div>
 
         <div class="col-lg-6 create">
-          <a href="{% url 'create-room' %}">Create a new room</a>
-
+          <a href="{% url 'create-room' %}" id="cr-link"
+            ><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Create a new
+            room</a
+          >
         </div>
       </div>
       <hr style="width: 90%; margin-left: 2.5%" />
@@ -29,8 +29,7 @@
     </div>
   </div>
 
-  <div>
-    {% include 'base/activity_component.html' %}
- </div>
+  <div>{% include 'base/activity_component.html' %}</div>
 
-{% endblock content %}
+  {% endblock content %}
+</div>
