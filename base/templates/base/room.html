@@ -1,14 +1,8 @@
 {% extends 'main.html' %} {% block content %}
 
-<style>
-  .room-container {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-  }
-</style>
 
-<div class="room-container">
-  <div>
+<div class="row">
+  <!-- <div>
     <h1 class="room-name">{{room.name}}</h1>
     <div class="rr-1">
       <span class="rr-s">
@@ -23,7 +17,6 @@
     </span>
 
     </div>
-    <!-- <p class="room-des">{{room.description}}</p> -->
     <div class="rr-2"><span class="rr-s">{{room.topic}}</span></div>
     <div class="comment-container">
       {% if request.user.is_authenticated %}
@@ -64,9 +57,66 @@
       </div>
       {% endfor %}
     </div>
-  </div>
+  </div> -->
+  <div class="col-lg-9">
+    <h1 class="room-name">{{room.name}}</h1>
+    <div class="rr-1">
+      <span class="rr-s">
+
+      Created by:
+      <span class="cap">
+        <a href="{% url 'user-profile' room.host.id %}"
+          >{{room.host.name}}</a
+        >
+      </span>
+       <span class="rr-s2"> |  {{room.created | timesince}} ago</span>
+    </span>
+
+    </div>
+    <div class="rr-2"><span class="rr-s">{{room.topic}}</span></div>
+    {% if request.user.is_authenticated %}
+
+    <form method="post" action="">
+      {% csrf_token %}
+      <div>
+
+      <input
+        class="msg-inp"
+        type="text"
+        name="body"
+        placeholder="Enter your message here..."
+      />
+    </div>
+  </form>
+  {% endif %}
 
   <div>
+    {% for room_message in room_messages %}
+    <div class="msg-card">
+      <div class="row">
+        <div class="col-lg-11 user cap">
+    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    {{room_message.user.name}}
+
+          <small class="rm-time">
+            {{room_message.created | timesince}} ago</small
+          >
+        </div>
+        <div class="col-lg-1">
+          {% if request.user == room_message.user %}
+          <a class="del2" href="{% url 'delete-message' room_message.id %}">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      <p class="comment-msg">{{room_message.body}}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+      </div>
+  <div class="col-lg-3">
     <h4 class="home-title">Participants</h4>
     <div>
       {% for user in participants %}
@@ -78,5 +128,7 @@
       {% endfor %}
     </div>
   </div>
+
+ 
 </div>
 {% endblock content %}
