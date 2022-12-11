@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_q1w@b+qp5f3oe-=g650!xiwow94b!%036+f0!-ada+%e3@147
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['suryaansh-django-app.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['suryaansh-django-app.herokuapp.com','localhost','127.0.0.1','.vercel.app']
 
 
 # Application definition
@@ -83,12 +83,7 @@ WSGI_APPLICATION = 'learning.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = {}
 
 
 # Password validation
